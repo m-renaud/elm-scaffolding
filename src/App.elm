@@ -8,8 +8,8 @@ import View
 main : Program Never
 main =
     Html.App.program
-        { init = State.initialState
+        { init = State.init
         , update = State.update
         , subscriptions = State.subscriptions
-        , view = View.rootView
+        , view = View.view
         }
