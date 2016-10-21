@@ -1,0 +1,15 @@
+{
+    "short_name": "Elm Scaffolding",
+    "name": "Best practices for Elm app project structure",
+    "background_color": "#000",
+    "icons": [
+        {
+            "src": "assets/images/mtg-thumbnail.jpg",
+            "sizes": "192x192",
+            "type": "image/jpg"
+        }
+    ],
+    "start_url": "/index.html",
+    "display": "standalone",
+    "orientation": "landscape"
+}
