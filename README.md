@@ -29,6 +29,14 @@ Once you do this you'll also want to go through and update the
 This builds your application and places it and all necessary resources
 into the `dist/` subdirectory.
 
+## Styling
+
+By default the scoffolding only links the css defined at
+`assets/style.css`, but you may want to use a frontend framework. To
+use [Material Design Lite](https://getmdl.io/) or
+[Bootstrap](http://getbootstrap.com/) uncomment the relevant section
+in `src/index.html` and follow the instructions there.
+
 
 ## Directory Layout
 
