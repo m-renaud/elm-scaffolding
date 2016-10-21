@@ -1,0 +1,12 @@
+#! /bin/bash
+
+output_dir="dist"
+app_main="src/App.elm"
+app_js="app.js"
+
+mkdir -p ${output_dir}
+
+elm-make ${app_main} --output="${output_dir}/${app_js}"
+rsync -av src/index.html "${output_dir}/"
+rsync -av src/manifest.json "${output_dir}/"
+rsync -av assets "${output_dir}/"
