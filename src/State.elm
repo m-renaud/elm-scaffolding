@@ -1,18 +1,18 @@
 module State exposing (init, subscriptions, update)
 
-import SimpleSubcomponent
-import ComplexSubcomponent.State
+import SimpleModule
+import ComplexModule.State
 import Types exposing (..)
 
 
 init : (Model, Cmd Msg)
 init =
     let
-        (simpleSubcomponent, simpleCmd) = SimpleSubcomponent.init
-        (complexSubcomponent, complexCmd) = ComplexSubcomponent.State.init
+        (simpleModule, simpleCmd) = SimpleModule.init
+        (complexModule, complexCmd) = ComplexModule.State.init
         model =
-            { simpleSubcomponentModel = simpleSubcomponent
-            , complexSubcomponentModel = complexSubcomponent
+            { simpleModuleModel = simpleModule
+            , complexModuleModel = complexModule
             }
 
     in
@@ -33,9 +33,9 @@ update msg model =
         SimpleMsg simpleMsg ->
             let
                 (updatedSimpleModel, simpleCmd) =
-                    SimpleSubcomponent.update simpleMsg model.simpleSubcomponentModel
+                    SimpleModule.update simpleMsg model.simpleModuleModel
                 updatedModel =
-                    { model | simpleSubcomponentModel = updatedSimpleModel }
+                    { model | simpleModuleModel = updatedSimpleModel }
 
             in
                 (updatedModel, Cmd.map SimpleMsg simpleCmd)
@@ -43,9 +43,9 @@ update msg model =
         ComplexMsg complexMsg ->
             let
                 (updatedComplexModel, complexCmd) =
-                    ComplexSubcomponent.State.update complexMsg model.complexSubcomponentModel
+                    ComplexModule.State.update complexMsg model.complexModuleModel
                 updatedModel =
-                    { model | complexSubcomponentModel = updatedComplexModel }
+                    { model | complexModuleModel = updatedComplexModel }
 
             in
                 (updatedModel, Cmd.map ComplexMsg complexCmd)
@@ -54,8 +54,8 @@ update msg model =
 subscriptions : Model -> Sub Msg
 subscriptions model =
     Sub.batch
-        [ SimpleSubcomponent.subscriptions model.simpleSubcomponentModel
+        [ SimpleModule.subscriptions model.simpleModuleModel
               |> Sub.map SimpleMsg
-        , ComplexSubcomponent.State.subscriptions model.complexSubcomponentModel
+        , ComplexModule.State.subscriptions model.complexModuleModel
               |> Sub.map ComplexMsg
         ]

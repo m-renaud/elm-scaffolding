@@ -1,4 +1,4 @@
-module ComplexSubcomponent.Types exposing (Model, Msg(..))
+module ComplexModule.Types exposing (Model, Msg(..))
 
 -- MODEL
 

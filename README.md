@@ -44,7 +44,7 @@ All of the source code for the app lives in the `src/` directory and
 the css, external JavaScript, and media live in the `assets/`
 directory. Lets dig a bit deeper into the source directory.
 
-Each component is broken up into 4 main files `Types.elm`,
+Each module is broken up into 4 main files `Types.elm`,
 `State.elm`, `View.elm`, and `Rest.elm`.
 
 > _Types: The Model and Msg types._
@@ -53,12 +53,12 @@ Each component is broken up into 4 main files `Types.elm`,
 
 > _View: The view function._
 
-> _Rest: The REST APIs and JSON decoders. Not every component will
-> have this._
+> _Rest: The REST APIs and JSON decoders. Not every module will  have
+> this._
 
 This pattern will repeat at the top level of your app as well for each
-of your subcomponents. For small components you may chose to combine
-these into a single file, that's up to you.
+of your modules. For small modules you may chose to combine these into
+a single file, that's up to you.
 
 
 ### `scr/App.elm`
@@ -89,7 +89,7 @@ main =
 Contains the top level `Model` and `Msg` types for your app. Your `Model`
 will typically consist of the models of the submodules of your
 application as we'll see later on. The message type will be a union
-type containing the messages of your subcomponents and any application
+type containing the messages of your modules and any application
 level messages that you have.
 
 
@@ -97,16 +97,13 @@ level messages that you have.
 
 Contains the top level `view` function for your app which sets up the
 high level layout, leaving specifics to the `view` function of
-subcomponents. 
+modules.
 
 ### `src/State.elm`
 
-The `init`, `upate`, and `subscriiptions` functions at the top level
-of your app end up being mostly boilerplate to invoke the
-corresponding functions on each of the subcomponents and wrap them
-with the appropriate message type. This will also be the case if you
-have other components with subcomponents, this file should give you a
-good idea of how to handle the composition.
-
-
-
+The `init`, `upate`, and `subscriptions` functions at the top level of
+your app end up being mostly boilerplate to invoke the corresponding
+functions on each of the modules and wrap them with the appropriate
+message type. This will also be the case if you have modules that
+contain other module, this file should give you a good idea of how to
+handle the composition.

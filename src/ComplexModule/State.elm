@@ -1,6 +1,6 @@
-module ComplexSubcomponent.State exposing (init, subscriptions, update)
+module ComplexModule.State exposing (init, subscriptions, update)
 
-import ComplexSubcomponent.Types exposing (..)
+import ComplexModule.Types exposing (..)
 
 
 init : (Model, Cmd Msg)

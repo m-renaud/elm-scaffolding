@@ -5,8 +5,8 @@ import Html.App
 import Html.Attributes exposing (..)
 
 import Types exposing (..)
-import SimpleSubcomponent
-import ComplexSubcomponent.View
+import SimpleModule
+import ComplexModule.View
 
 
 view : Model -> Html Msg
@@ -16,9 +16,9 @@ view model =
         scaffoldingText = text "Best practices project structure for Elm projects."
         content = div [ class "content container" ]
                   [ scaffoldingText
-                  , SimpleSubcomponent.view model.simpleSubcomponentModel
+                  , SimpleModule.view model.simpleModuleModel
                       |> Html.App.map SimpleMsg
-                  , ComplexSubcomponent.View.view model.complexSubcomponentModel
+                  , ComplexModule.View.view model.complexModuleModel
                       |> Html.App.map ComplexMsg
                   ]
         footer = div [class "footer"]

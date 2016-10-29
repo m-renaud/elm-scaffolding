@@ -1,5 +1,5 @@
-{- A simple sub-component that is small enough to be defined in one file. -}
-module SimpleSubcomponent exposing (Model, Msg(..), init, subscriptions, update, view)
+{- A simple module that is small enough to be defined in one file. -}
+module SimpleModule exposing (Model, Msg(..), init, subscriptions, update, view)
 
 import Html exposing (..)
 
@@ -44,7 +44,7 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    div [] [ text "Simple subcomponent" ]
+    div [] [ text "Simple module" ]
 
 
 
